@@ -15,9 +15,15 @@ namespace NameSorterLibrary
             Console.Clear();
         }
 
-        public static void AddLine(int p)
+        public static void Enter()
         {
-            for (int i = 0; i < p; i++)
+            Console.WriteLine("Press enter to continue...");
+            Console.ReadLine();
+        }
+
+        public static void AddLine(int length)
+        {
+            for (int i = 0; i < length; i++)
             {
                 Console.WriteLine();
             }

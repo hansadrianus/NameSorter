@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NameSorterLibrary.Person
 {
-    public class PersonModel
+    public class PersonModel : IPersonModel
     {
         public string FullName { get; set; }
         public string IndexName { get; set; }

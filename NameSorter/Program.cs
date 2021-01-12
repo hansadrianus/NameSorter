@@ -19,6 +19,11 @@ namespace NameSorter
             //string data = Console.ReadLine();
             string data = "C:/Users/hanshersiono/source/repos/NameSorter/xUnitTest/File/unsorted-names-list.txt";
 
+            string path = "C:/Users/hanshersiono/source/repos/NameSorter/xUnitTest/File/sorted-names-list.txt";
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamWriter writer = new StreamWriter(stream);
+            TextWriter textWriter = Console.Out;
+
             StandardMessage.Clear();
 
             //Read the data
@@ -29,9 +34,9 @@ namespace NameSorter
             {
                 Console.WriteLine(item);
             }
-            //End read the data
 
-            StandardMessage.AddLine(3);
+            StandardMessage.Enter();
+            StandardMessage.Clear();
 
             List<PersonModel> people = new List<PersonModel>();
             Accounts account = new Accounts();
@@ -41,10 +46,23 @@ namespace NameSorter
                 people.Add(account.Append(name));
             }
 
+            Console.WriteLine("Sorted name list:");
             foreach (var sort in people.OrderBy(q => q.IndexName).ThenBy(q => q.FullName))
             {
                 Console.WriteLine(sort.FullName);
             }
+
+            Console.SetOut(writer);
+            Console.WriteLine("Sorted name list:");
+            foreach (var sort in people.OrderBy(q => q.IndexName).ThenBy(q => q.FullName))
+            {
+                Console.WriteLine(sort.FullName);
+            }            
+            Console.SetOut(textWriter);
+            writer.Close();
+            stream.Close();
+            Console.WriteLine("File exported with name sorted-names-list.txt");
+            StandardMessage.Enter();
         }
     }
 }
