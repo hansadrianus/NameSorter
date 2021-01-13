@@ -7,7 +7,7 @@ using Xunit;
 
 namespace xUnitTest
 {
-    public class SortName
+    public class SortNameTest
     {
         [Fact]
         public void SortLastName()

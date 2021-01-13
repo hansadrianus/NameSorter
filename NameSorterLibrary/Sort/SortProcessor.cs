@@ -1,16 +1,18 @@
-﻿using NameSorterLibrary.Person;
+﻿using NameSorterLibrary.Name;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NameSorterLibrary.Accounts
+namespace NameSorterLibrary.Sort
 {
-    public class Accounts : IAccounts
+    public class SortProcessor
     {
-        public PersonModel Append(string person)
+        public NameModel AppendData(string person)
         {
-            PersonModel model = new PersonModel();
+            NameModel model = new NameModel();
+
             model.FullName = person;
             model.IndexName = person.Split(" ", StringSplitOptions.RemoveEmptyEntries).Last();
 
