@@ -6,7 +6,7 @@ namespace NameSorterLibrary
     {
         public static void Welcome()
         {
-            Console.WriteLine("Welcome Name Sort!");
+            Console.WriteLine("Welcome to Name Sort!");
             Console.WriteLine();
         }
 
